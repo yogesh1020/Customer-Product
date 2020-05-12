@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import {HttpClient} from '@angular/common/http'
+import {HttpClient, HttpParams} from '@angular/common/http'
 import { config } from 'rxjs';
 
 @Component({
@@ -30,20 +30,14 @@ loginFormGroup : FormGroup;
     }
     else
     {
-      const param = this.loginFormGroup.value
-      this.http.post(this.rootURL+'/Login',{
-        Email:this.loginFormGroup.value.email,
-        Password:this.loginFormGroup.value.password
+      let headers = new Headers();
+        headers.append('Content-Type', 'application/json');
+      let param  =  new HttpParams().set("Email",this.loginFormGroup.controls.email.value)
+      .set("Password",this.loginFormGroup.controls.password.value)
+      this.http.get(this.rootURL+'/Login',{params:param
       }).subscribe((res:any)=>this.result = res)
       console.log(this.result);
       sessionStorage.setItem('token',this.loginFormGroup.controls.email.value)
-      
-      if(this.result ==null){
-        alert("enter valid username or password")
-      }
-      else{
-        this.router.navigateByUrl('profile')
-      }
     }
   }
   

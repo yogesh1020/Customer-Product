@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\radix\\Desktop\\WFH\\Project-Task-master\\ProjectTaskApi\\ProjectTaskApi.csproj": {}
+    "C:\\Users\\radix\\Desktop\\WFH\\Customer-Product\\ProjectTaskApi\\ProjectTaskApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\radix\\Desktop\\WFH\\Project-Task-master\\ProjectTaskApi\\ProjectTaskApi.csproj": {
+    "C:\\Users\\radix\\Desktop\\WFH\\Customer-Product\\ProjectTaskApi\\ProjectTaskApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\radix\\Desktop\\WFH\\Project-Task-master\\ProjectTaskApi\\ProjectTaskApi.csproj",
+        "projectUniqueName": "C:\\Users\\radix\\Desktop\\WFH\\Customer-Product\\ProjectTaskApi\\ProjectTaskApi.csproj",
         "projectName": "ProjectTaskApi",
-        "projectPath": "C:\\Users\\radix\\Desktop\\WFH\\Project-Task-master\\ProjectTaskApi\\ProjectTaskApi.csproj",
+        "projectPath": "C:\\Users\\radix\\Desktop\\WFH\\Customer-Product\\ProjectTaskApi\\ProjectTaskApi.csproj",
         "packagesPath": "C:\\Users\\radix\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\radix\\Desktop\\WFH\\Project-Task-master\\ProjectTaskApi\\obj\\",
+        "outputPath": "C:\\Users\\radix\\Desktop\\WFH\\Customer-Product\\ProjectTaskApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\radix\\AppData\\Roaming\\NuGet\\NuGet.Config",

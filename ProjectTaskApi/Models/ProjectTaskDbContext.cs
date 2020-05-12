@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using ProjectTaskApi.Models;
 
 namespace ProjectTaskApi.Models
 {
@@ -111,9 +112,40 @@ namespace ProjectTaskApi.Models
                     .IsUnicode(false);
             });
 
+            modelBuilder.Entity<Payment>(entity =>
+            {
+                entity.HasKey(e => e.PaymentId);
+
+                entity.Property(e => e.CardNumber)
+                .IsRequired()
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+                entity.Property(e => e.ExMonth)
+                .IsRequired()
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+
+                entity.Property(e => e.ExYear)
+                .IsRequired()
+                .HasMaxLength(50)
+                .IsUnicode(false);
+
+
+                entity.Property(e => e.Cvv)
+                .IsRequired()
+                .HasMaxLength(50)
+                .IsUnicode(false);
+            });
+
+
+
             OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        public DbSet<ProjectTaskApi.Models.Payment> Payment { get; set; }
     }
 }
