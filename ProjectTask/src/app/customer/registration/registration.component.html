@@ -1,0 +1,54 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form [formGroup]="registrationFormGroup">
+        <table>
+            <tr>
+                <td>First Name</td>
+                <td><input type="text" formControlName="firstName"></td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td><input type="text" formControlName="lastName"></td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" formControlName="email"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" formControlName="password"></td>
+            </tr>
+            <tr>
+                <td>Confirm Password</td>
+                <td><input type="password" formControlName="confirmPassword" (blur) ="check()"></td>
+            </tr>
+            <tr>
+                <td>Mobile Number</td>
+                <td><input type="text" formControlName="mobileNumber"></td>
+            </tr>
+
+            <tr>
+                <td>Gender</td>
+                <td><input type="text" formControlName="gender"></td>
+            </tr>
+
+            <tr>
+                <td>Address</td>
+                <td><input type="text" formControlName="address"></td>
+            </tr>
+            <tr>
+                <td>Date of Birth</td>
+                <td><input type="date" formControlName="dob"></td>
+            </tr>
+
+        </table>
+        <button (click)="submit()">Submit</button>
+    </form>
+    <small>Allredy Registerd ? <a [routerLink]="['/login']">Login</a> </small>
+</body>
+</html>

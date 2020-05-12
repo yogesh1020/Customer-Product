@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>List Of Product</p>
+        <input type="text" [(ngModel)]="search" placeholder="search by product name & brand name">
+        <p>Add Product <button [routerLink]="['/add']">Add</button></p>
+        <button [routerLink]="['/cart']">Cart</button>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+          <th>Product Name</th>
+          <th>Product brand</th>
+          <th>price</th>
+          <th>status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let hero of result , let i = index ">
+          <td>{{hero.productName}}</td>
+          <td>{{hero.brand}}</td>
+          <td>{{hero.price}}</td>
+          <td>{{hero.status}}</td>
+          <td><Button (click)="addToCart(i)">Add To Cart</Button></td>
+        </tr>
+        </tbody>
+      </table>
+</body>
+</html>

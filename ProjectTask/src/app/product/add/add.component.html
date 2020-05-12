@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form [formGroup]="addFormGroup">
+        <table>
+            <tr>
+                <td>Product Name</td>
+                <td><input type="text" formControlName="productName"></td>
+            </tr>
+            
+            <tr>
+                <td>Brand</td>
+                <td><input type="text" formControlName="brand"></td>
+            </tr>
+            
+            <tr>
+                <td>price</td>
+                <td><input type="text" formControlName="price"></td>
+            </tr>
+            
+            <tr>
+                <td>status</td>
+                <td>    
+                   <input type="text" formControlName="status">
+                </td>
+            </tr>
+
+        </table>
+        <button (click)="submit()">Submit</button>
+    </form>
+</body>
+</html>

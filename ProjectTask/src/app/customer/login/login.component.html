@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form [formGroup]="loginFormGroup" >
+        <table>
+            <tr>
+                <td>Email</td>
+                <td><input type="text" formControlName="email"></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><input type="password" formControlName="password"></td>
+            </tr>
+        </table>
+        <button (click)="submit()">Submit</button>
+    </form>
+</body>
+</html>

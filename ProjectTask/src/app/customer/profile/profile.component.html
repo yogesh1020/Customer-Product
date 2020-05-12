@@ -1,0 +1,49 @@
+<!-- <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>My Profile  <button class="btn btn-ligth" [routerLink]="['/edit']"><small>Edit</small></button></p>
+    <table *ngFor="let item of result">
+        <tr>
+            <td>First Name :</td>
+            <td>{{item.firstName}}</td>
+        </tr>
+        <tr>
+            <td>Last Name</td>
+            <td>{{item.lastName}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{item.email}}</td>
+        </tr>
+        <tr>
+            <td>Mobile number</td>
+            <td>{{item.mobileNumber}}</td>
+        </tr>
+        <tr>
+            <td>Gende</td>
+            <td>{{item.gender}}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{item.address}}</td>
+        </tr>
+        <tr>
+            <td>Date of Birth</td>
+            <td>{{item.dob}}</td>
+        </tr>
+    </table>
+</body>
+</html> -->
+
+
+<ag-grid-angular
+
+[rowData]="result | async"
+[]
+>
+
+</ag-grid-angular>
