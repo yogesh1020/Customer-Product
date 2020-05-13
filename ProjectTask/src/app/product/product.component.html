@@ -19,7 +19,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let hero of result , let i = index ">
+        <tr *ngFor="let hero of result | filter : search , let i = index ">
           <td>{{hero.productName}}</td>
           <td>{{hero.brand}}</td>
           <td>{{hero.price}}</td>

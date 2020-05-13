@@ -1,0 +1,30 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form [formGroup]="paymentFormGroup">
+        <table>
+            <tr>
+                <td>Card Number</td>
+                <td> <input type="text" formControlName="cardNumber"></td>
+            </tr>
+            <tr>
+                <td>Expiry Month</td>
+                <td><input type="text" formControlName="exMonth"></td>
+            </tr>
+            <tr>
+                <td>Expiry Year</td>
+                <td><input type="text" formControlName="exYear"></td>
+            </tr>
+            <tr>
+                <td>Cvv</td>
+                <td><input type="text" formControlName="cvv"></td>
+            </tr>
+        </table>
+        <button (click)="submit()">PayNow</button>
+    </form>
+</body>
+</html>

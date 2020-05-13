@@ -16,7 +16,8 @@ import { EditComponent } from './customer/profile/edit/edit.component';
 import { AddComponent } from './product/add/add.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter'
 import {AgGridModule, AgGridAngular} from 'ag-grid-angular';
-import { CartComponent } from './cart/cart.component'
+import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component'
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { CartComponent } from './cart/cart.component'
     EditComponent,
     AddComponent,
     CartComponent,
+    PaymentComponent,
     
   ],
   imports: [

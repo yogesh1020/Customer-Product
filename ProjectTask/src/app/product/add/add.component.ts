@@ -32,15 +32,14 @@ export class AddComponent implements OnInit {
       alert("validation required");
     }
    else{
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.post(this.rootURL+'/Products',{ProductName:this.addFormGroup.controls.productName.value,
+    this.http.post(this.rootURL+'/Products',{
+      ProductName:this.addFormGroup.controls.productName.value,
       Brand:this.addFormGroup.controls.brand.value,
       Price:this.addFormGroup.controls.price.value,
       Status:this.addFormGroup.controls.status.value
-    ,headers:headers}).subscribe(res=>{this.result = res});
+    }).subscribe(res=>{this.result = res})
 
-   this.router.navigateByUrl('product')
+  // this.router.navigateByUrl('product')
    }
   }
 }

@@ -30,16 +30,18 @@ loginFormGroup : FormGroup;
     }
     else
     {
-      let headers = new Headers();
-        headers.append('Content-Type', 'application/json');
-      let param  =  new HttpParams().set("Email",this.loginFormGroup.controls.email.value)
-      .set("Password",this.loginFormGroup.controls.password.value)
-      this.http.get(this.rootURL+'/Login',{params:param
-      }).subscribe((res:any)=>this.result = res)
-      console.log(this.result);
+     
+      this.http.post(this.rootURL+'/Login',{
+        Email:this.loginFormGroup.controls.email.value,
+        Password : this.loginFormGroup.controls.password.value
+        }).subscribe((res:any)=>this.result = res)
+      if(this.result == null){
+        alert("Enter valid credentials")
+      }
+      else{
       sessionStorage.setItem('token',this.loginFormGroup.controls.email.value)
+      this.router.navigateByUrl('profile')
+      }
     }
   }
-  
-
 }

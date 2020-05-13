@@ -19,6 +19,8 @@ namespace ProjectTaskApi.Models
         public virtual DbSet<Cart> Cart { get; set; }
         public virtual DbSet<Customers> Customers { get; set; }
         public virtual DbSet<Products> Products { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Invoice> Invoice { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,7 +42,10 @@ namespace ProjectTaskApi.Models
                     .HasMaxLength(10)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Price).HasColumnType("money");
+                entity.Property(e => e.Price)
+                .IsRequired()
+                .HasMaxLength(50)
+                .IsUnicode(false);
 
                 entity.Property(e => e.ProductName)
                     .IsRequired()
@@ -99,7 +104,10 @@ namespace ProjectTaskApi.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.Price).HasColumnType("money");
+                entity.Property(e => e.Price)
+                .IsRequired()
+                .HasMaxLength(50)
+                .IsUnicode(false);
 
                 entity.Property(e => e.ProductName)
                     .IsRequired()
@@ -118,22 +126,31 @@ namespace ProjectTaskApi.Models
 
                 entity.Property(e => e.CardNumber)
                 .IsRequired()
-                .HasMaxLength(50)
+                .HasMaxLength(16)
                 .IsUnicode(false);
 
                 entity.Property(e => e.ExMonth)
                 .IsRequired()
-                .HasMaxLength(50)
+                .HasMaxLength(2)
                 .IsUnicode(false);
 
 
                 entity.Property(e => e.ExYear)
                 .IsRequired()
-                .HasMaxLength(50)
+                .HasMaxLength(2)
                 .IsUnicode(false);
 
 
                 entity.Property(e => e.Cvv)
+                .IsRequired()
+                .HasMaxLength(3)
+                .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<Invoice>(entity =>
+            {
+                entity.HasKey(e => e.InvoiceId);
+                entity.Property(e => e.Total)
                 .IsRequired()
                 .HasMaxLength(50)
                 .IsUnicode(false);
@@ -146,6 +163,6 @@ namespace ProjectTaskApi.Models
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 
-        public DbSet<ProjectTaskApi.Models.Payment> Payment { get; set; }
+        
     }
 }

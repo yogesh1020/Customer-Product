@@ -42,7 +42,7 @@ export class ProductComponent implements OnInit {
     }).subscribe((res:any)=>{
       this.result = res
     })
-    console.log(this.result[i])
+    location.reload();
   }
  
 

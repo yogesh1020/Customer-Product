@@ -8,6 +8,6 @@ namespace ProjectTaskApi.Models
         public int ProductCode { get; set; }
         public string ProductName { get; set; }
         public string Brand { get; set; }
-        public decimal Price { get; set; }
+        public string Price { get; set; }
     }
 }

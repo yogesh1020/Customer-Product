@@ -79,10 +79,14 @@ namespace ProjectTaskApi.Controllers
         [HttpPost]
         public async Task<ActionResult<Customers>> PostCustomers(Customers customers)
         {
-            _context.Customers.Add(customers);
-            await _context.SaveChangesAsync();
+            var check = await _context.Customers.SingleOrDefaultAsync(a => a.Email == customers.Email && a.Password == customers.Password);
 
-            return CreatedAtAction("GetCustomers", new { id = customers.CustomerNumber }, customers);
+            if (check == null)
+            {
+                return null;
+            }
+
+            return check;
         }
 
         // DELETE: api/Login/5

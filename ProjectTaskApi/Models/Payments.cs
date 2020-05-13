@@ -8,10 +8,10 @@ namespace ProjectTaskApi.Models
     public class Payment
     {
         public int PaymentId { get; set; }
-        public int CardNumber { get; set; }
-        public int ExMonth { get; set; }
-        public int ExYear { get; set; }
-        public int Cvv { get; set; }
+        public string CardNumber { get; set; }
+        public string ExMonth { get; set; }
+        public string ExYear { get; set; }
+        public string Cvv { get; set; }
 
     }
 }

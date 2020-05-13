@@ -78,7 +78,7 @@ namespace ProjectTaskApi.Controllers
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
         public async Task<ActionResult<Products>> PostProducts(Products products)
-        {
+            {
             _context.Products.Add(products);
             await _context.SaveChangesAsync();
 

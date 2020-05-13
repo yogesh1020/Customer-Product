@@ -11,48 +11,56 @@ namespace ProjectTaskApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PaymentsController : ControllerBase
+    public class InvoicesController : ControllerBase
     {
         private readonly ProjectTaskDbContext _context;
 
-        public PaymentsController(ProjectTaskDbContext context)
+        public InvoicesController(ProjectTaskDbContext context)
         {
             _context = context;
         }
 
-        // GET: api/Payments
+        // GET: api/Invoices
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Payment>>> GetPayments()
+        public async Task<ActionResult<IEnumerable<Invoice>>> GetInvoices()
         {
-            return await _context.Payments.ToListAsync();
+           var result = await _context.Invoice.ToListAsync();
+            if(result == null)
+            {
+                return null;
+            }
+            else
+            {
+                return result;
+            }
         }
 
-        // GET: api/Payments/5
+        // GET: api/Invoices/5
         [HttpGet("{id}")]
-        public async Task<ActionResult<Payment>> GetPayment(int id)
+        public async Task<ActionResult<Invoice>> GetInvoices(Invoice invoice)
         {
-            var payment = await _context.Payments.FindAsync(id);
+            var invoices = await _context.Invoice.LastOrDefaultAsync(e=>e.Total == invoice.Total);
 
-            if (payment == null)
+            if (invoices == null)
             {
                 return NotFound();
             }
 
-            return payment;
+            return invoices;
         }
 
-        // PUT: api/Payments/5
+        // PUT: api/Invoices/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutPayment(int id, Payment payment)
+        public async Task<IActionResult> PutInvoices(int id, Invoice invoices)
         {
-            if (id != payment.PaymentId)
+            if (id != invoices.InvoiceId)
             {
                 return BadRequest();
             }
 
-            _context.Entry(payment).State = EntityState.Modified;
+            _context.Entry(invoices).State = EntityState.Modified;
 
             try
             {
@@ -60,7 +68,7 @@ namespace ProjectTaskApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!PaymentExists(id))
+                if (!InvoicesExists(id))
                 {
                     return NotFound();
                 }
@@ -73,37 +81,37 @@ namespace ProjectTaskApi.Controllers
             return NoContent();
         }
 
-        // POST: api/Payments
+        // POST: api/Invoices
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for
         // more details see https://aka.ms/RazorPagesCRUD.
         [HttpPost]
-        public async Task<ActionResult<Payment>> PostPayment(Payment payment)
+        public async Task<ActionResult<Invoice>> PostInvoices(Invoice invoices)
         {
-            _context.Payments.Add(payment);
+            _context.Invoice.Add(invoices);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetPayment", new { id = payment.PaymentId }, payment);
+            return CreatedAtAction("GetInvoices", new { id = invoices.InvoiceId }, invoices);
         }
 
-        // DELETE: api/Payments/5
+        // DELETE: api/Invoices/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<Payment>> DeletePayment(int id)
+        public async Task<ActionResult<Invoice>> DeleteInvoices(int id)
         {
-            var payment = await _context.Payments.FindAsync(id);
-            if (payment == null)
+            var invoices = await _context.Invoice.FindAsync(id);
+            if (invoices == null)
             {
                 return NotFound();
             }
 
-            _context.Payments.Remove(payment);
+            _context.Invoice.Remove(invoices);
             await _context.SaveChangesAsync();
 
-            return payment;
+            return invoices;
         }
 
-        private bool PaymentExists(int id)
+        private bool InvoicesExists(int id)
         {
-            return _context.Payments.Any(e => e.PaymentId == id);
+            return _context.Invoice.Any(e => e.InvoiceId == id);
         }
     }
 }

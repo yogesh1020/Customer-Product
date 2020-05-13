@@ -15,7 +15,7 @@ rootURL: string = 'https://localhost:44335/api';
   constructor(public http:HttpClient) { }
 
   ngOnInit(): void {
-    this.rowData = this.http.get<any[]>(this.rootURL+'Customers').subscribe(data => {
+    this.rowData = this.http.get(this.rootURL+'/Customers').subscribe(data => {
       this.result = data;
        console.log("data",this.result);
     });

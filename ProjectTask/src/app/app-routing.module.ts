@@ -7,6 +7,7 @@ import { ProfileComponent } from './customer/profile/profile.component';
 import { AddComponent } from './product/add/add.component';
 import { EditComponent } from './customer/profile/edit/edit.component';
 import { CartComponent } from './cart/cart.component';
+import { PaymentComponent } from './payment/payment.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,9 @@ const routes: Routes = [
   },
   {
     path:'cart' , component :CartComponent
+  },
+  {
+    path :'payment',component:PaymentComponent
   }
 ];
 
